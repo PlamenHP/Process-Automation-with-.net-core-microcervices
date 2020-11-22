@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+    jenkins:
+        container_name: jenkins
+        image: plamenhp/carrentalsystem-jenkins-service
+        build:
+            context: ./
+        restart: on-failure
+        environment:
+          - "JAVA_OPTS=-Xmx3g -Xms2G"
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - jenkins_data:/var/jenkins_home
+        ports:
+            - "8180:8080"
+            - "8181:50000"
+
+volumes:
+  jenkins_data:
+    driver: local
+    driver_opts:
+      type: "none"
+      o: "bind"
+      device: "/jenkinsdata"
