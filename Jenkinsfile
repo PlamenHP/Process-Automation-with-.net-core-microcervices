@@ -29,7 +29,7 @@ pipeline {
 		}
 		stage('Run Integration Tests') {
 			steps {
-				sh 'chmod +x -R ${env.WORKSPACE}'
+				sh "chmod +x -R ${env.WORKSPACE}"
 				sh './Tests/ContainerTests.sh'
 			}
 		}
