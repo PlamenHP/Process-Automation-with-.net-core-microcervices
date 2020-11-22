@@ -9,13 +9,14 @@ pipeline {
 		stage('Run Unit Tests') {
 			steps {	
 				sh 'pwd'
-				sh 'cd Server'
+				dir('Server') {
+					sh 'pwd'
+					sh 'dotnet test'
+				}
 				sh 'pwd'
-				sh 'dotnet test'
-				sh 'cd ..'
 			}
 		}
-		stage('Docker Build') {
+		stage('Docker Build') {		
 			steps {
 				sh 'docker-compose build'
 				sh 'docker images -a'
