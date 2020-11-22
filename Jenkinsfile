@@ -8,7 +8,9 @@ pipeline {
 		}
 		stage('Run Unit Tests') {
 			steps {	
+				sh 'pwd'
 				sh 'cd Server'
+				sh 'pwd'
 				sh 'dotnet test'
 				sh 'cd ..'
 			}
@@ -26,7 +28,7 @@ pipeline {
 		}
 		stage('Run Integration Tests') {
 			steps {
-				sh './Tests/ContainerTests.ps1'
+				sh './Tests/ContainerTests.sh'
 			}
 		}
 		stage('Stop Test Application') {
