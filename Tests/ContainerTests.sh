@@ -1,5 +1,5 @@
 #!/bin/bash
-declare -a urls=("http://localhost" "http://identity/health" "http://dealers/health" "http://statistics/health" "http://notifications/health" "http://admin/health")
+declare -a urls=("http://localhost:8080/login" "http://identity/health" "http://dealers/health" "http://statistics/health" "http://notifications/health" "http://admin/health")
 
 for url in "${urls[@]}" 
 do
