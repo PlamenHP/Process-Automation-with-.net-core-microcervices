@@ -1,21 +1,30 @@
 #!/bin/bash
-count=0
+declare -a urls=("http://localhost" "http://identity/health" "http://dealers/health" "http://statistics/health" "http://notifications/health" "http://admin/health")
 
-until [ "$started" = true ] || [[ ( "$count" == 3 ) ]]; do
-  count=$((count+1))
-  echo "[$STAGE_NAME] Starting container [Attempt: $count]"
+for url in "${urls[@]}" 
+do
+  count=0
+  started=false
+  echo "-----------------------------------------"
+  echo "testing url: $url"
 
-  testStart=$(curl --write-out '%{http_code}' --silent --output /dev/null http://localhost)
+  until [ "$started" = true ] || [[ ( "$count" == 3 ) ]]; do
+    count=$((count+1))
+    echo "[$STAGE_NAME] Starting container [Attempt: $count]"
 
-  if [[ ( "$testStart" == 200 ) ]]; then
-    started=true
-    echo "Success"
-    else
-    sleep 1
+    testStart=$(curl --write-out '%{http_code}' --silent --output /dev/null $url)
+
+    if [[ ( "$testStart" == 200 ) ]]; then
+      started=true
+      echo "Success"
+      else
+      sleep 5
+    fi
+  done
+
+  if [ "$started" = false ]; then
+    echo "Failure"
+    exit 1
   fi
+  
 done
-
-if [ "$started" = false ]; then
-  echo "Failure"
-  exit 1
-fi
