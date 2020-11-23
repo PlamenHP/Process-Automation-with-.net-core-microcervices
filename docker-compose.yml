@@ -193,6 +193,7 @@ services:
 
 networks:
     carrentalsystem-network:
+        name: carrentalsystem
 
 volumes:
     sqldata:
