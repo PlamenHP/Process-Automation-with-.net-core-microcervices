@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: notification-service-data
+  name: notifications-service-data
 spec:
   accessModes:
     - ReadWriteOnce
@@ -14,37 +14,37 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: notification-service
+  name: notifications-service
 spec:
   type: LoadBalancer
   ports:
   - port: 5004
     targetPort: 80
   selector:
-    web-service: notification
+    web-service: notifications
 
 ---
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: notification-service
+  name: notifications-service
 spec:
   selector:
     matchLabels:
-      web-service: notification
+      web-service: notifications
   template:
     metadata:
       labels:
-        web-service: notification
+        web-service: notifications
         system: server
     spec:
       volumes:
-      - name: notification-service-data
+      - name: notifications-service-data
         persistentVolumeClaim:
-            claimName: notification-service-data
+            claimName: notifications-service-data
       containers:
-      - name: notification-service
+      - name: notifications-service
         image: plamenhp/carrentalsystem-notifications-service
         imagePullPolicy: IfNotPresent
         ports:
@@ -59,7 +59,7 @@ spec:
             secretKeyRef:
               name: environment-secrets
               key: security-token-secret
-        - name: NotificationSettings__AllowedOrigins
+        - name: notificationSettings__AllowedOrigins
           valueFrom:
             configMapKeyRef:
               name: environment-settings
@@ -80,5 +80,5 @@ spec:
               name: environment-secrets
               key: event-bus-password
         volumeMounts:
-        - name: notification-service-data
+        - name: notifications-service-data
           mountPath: /root/.aspnet/DataProtection-Keys

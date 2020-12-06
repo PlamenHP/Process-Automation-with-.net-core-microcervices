@@ -8,7 +8,7 @@ data:
   event-bus-user: rabbitmquser
   event-bus-host: event-bus
 
-  # <=== notification-servie ===>
+  # <=== notifications-servie ===>
   notifications-allowed-origins: http://localhost
 
   # <=== admin-client ===>
