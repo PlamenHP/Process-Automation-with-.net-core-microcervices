@@ -38,12 +38,12 @@ data: # pwd text here for simplicity while testing
   dealers-database-sa-password: ZGVhbGVyc0RhdGFiYXNlUGFzc3dvcmQxMiFA
 
   # Default connection string
-  # "Server=sqlserver;Database=CarRentalDealersDatabase;User Id=sa; Password=dealersDatabasePassword12!@;MultipleActiveResultSets=true"
-  dealers-service-default-connection-string: U2VydmVyPXNxbHNlcnZlcjtEYXRhYmFzZT1DYXJSZW50YWxEZWFsZXJzRGF0YWJhc2U7VXNlciBJZD1zYTsgUGFzc3dvcmQ9ZGVhbGVyc0RhdGFiYXNlUGFzc3dvcmQxMiFAO011bHRpcGxlQWN0aXZlUmVzdWx0U2V0cz10cnVl
+  # "Server=dealers-database;Database=CarRentalDealersDatabase;User Id=sa; Password=dealersDatabasePassword12!@;MultipleActiveResultSets=true"
+  dealers-service-default-connection-string: U2VydmVyPWRlYWxlcnMtZGF0YWJhc2U7RGF0YWJhc2U9Q2FyUmVudGFsRGVhbGVyc0RhdGFiYXNlO1VzZXIgSWQ9c2E7IFBhc3N3b3JkPWRlYWxlcnNEYXRhYmFzZVBhc3N3b3JkMTIhQDtNdWx0aXBsZUFjdGl2ZVJlc3VsdFNldHM9dHJ1ZQ==
 
   # Cron Job connection string
-  # "Server=sqlserver;Database=CarRentalDealersCronJobsDatabase;User Id=sa; Password=dealersDatabasePassword12!@;MultipleActiveResultSets=true"
-  dealers-service-cronjob-connection-string: U2VydmVyPXNxbHNlcnZlcjtEYXRhYmFzZT1DYXJSZW50YWxEZWFsZXJzQ3JvbkpvYnNEYXRhYmFzZTtVc2VyIElkPXNhOyBQYXNzd29yZD1kZWFsZXJzRGF0YWJhc2VQYXNzd29yZDEyIUA7TXVsdGlwbGVBY3RpdmVSZXN1bHRTZXRzPXRydWU=
+  # "Server=dealers-database;Database=CarRentalDealersCronJobsDatabase;User Id=sa; Password=dealersDatabasePassword12!@;MultipleActiveResultSets=true"
+  dealers-service-cronjob-connection-string: U2VydmVyPWRlYWxlcnMtZGF0YWJhc2U7RGF0YWJhc2U9Q2FyUmVudGFsRGVhbGVyc0Nyb25Kb2JzRGF0YWJhc2U7VXNlciBJZD1zYTsgUGFzc3dvcmQ9ZGVhbGVyc0RhdGFiYXNlUGFzc3dvcmQxMiFAO011bHRpcGxlQWN0aXZlUmVzdWx0U2V0cz10cnVl
 
 
   # <=============== Statistics =====================>
@@ -51,12 +51,12 @@ data: # pwd text here for simplicity while testing
   statistics-database-sa-password: c3RhdGlzdGljc0RhdGFiYXNlUGFzc3dvcmQxMiFA
 
   # Default connection string
-  # "Server=sqlserver;Database=CarRentalStatisticsDatabase;User Id=sa; Password=statisticsDatabasePassword12!@;MultipleActiveResultSets=true"
-  statistict-service-default-connection-string: U2VydmVyPXNxbHNlcnZlcjtEYXRhYmFzZT1DYXJSZW50YWxTdGF0aXN0aWNzRGF0YWJhc2U7VXNlciBJZD1zYTsgUGFzc3dvcmQ9c3RhdGlzdGljc0RhdGFiYXNlUGFzc3dvcmQxMiFAO011bHRpcGxlQWN0aXZlUmVzdWx0U2V0cz10cnVl
+  # "Server=statistics-database;Database=CarRentalStatisticsDatabase;User Id=sa; Password=statisticsDatabasePassword12!@;MultipleActiveResultSets=true"
+  statistict-service-default-connection-string: U2VydmVyPXN0YXRpc3RpY3MtZGF0YWJhc2U7RGF0YWJhc2U9Q2FyUmVudGFsU3RhdGlzdGljc0RhdGFiYXNlO1VzZXIgSWQ9c2E7IFBhc3N3b3JkPXN0YXRpc3RpY3NEYXRhYmFzZVBhc3N3b3JkMTIhQDtNdWx0aXBsZUFjdGl2ZVJlc3VsdFNldHM9dHJ1ZQ==
 
   # Cron Job connection string
-  # "Server=sqlserver;Database=CarRentalStatisticsCronJobsDatabase;User Id=sa; Password=statisticsDatabasePassword12!@;MultipleActiveResultSets=true"
-  statistics-service-cronjob-connection-string: U2VydmVyPXNxbHNlcnZlcjtEYXRhYmFzZT1DYXJSZW50YWxTdGF0aXN0aWNzQ3JvbkpvYnNEYXRhYmFzZTtVc2VyIElkPXNhOyBQYXNzd29yZD1zdGF0aXN0aWNzRGF0YWJhc2VQYXNzd29yZDEyIUA7TXVsdGlwbGVBY3RpdmVSZXN1bHRTZXRzPXRydWU=
+  # "Server=statistics-database;Database=CarRentalStatisticsCronJobsDatabase;User Id=sa; Password=statisticsDatabasePassword12!@;MultipleActiveResultSets=true"
+  statistics-service-cronjob-connection-string: U2VydmVyPXN0YXRpc3RpY3MtZGF0YWJhc2U7RGF0YWJhc2U9Q2FyUmVudGFsU3RhdGlzdGljc0Nyb25Kb2JzRGF0YWJhc2U7VXNlciBJZD1zYTsgUGFzc3dvcmQ9c3RhdGlzdGljc0RhdGFiYXNlUGFzc3dvcmQxMiFAO011bHRpcGxlQWN0aXZlUmVzdWx0U2V0cz10cnVl
 
 
   # <=============== Event-bus =====================>
