@@ -3,10 +3,30 @@ kind: ConfigMap
 metadata:
   name: environment-settings
 data:
+  # <=== common ===>
   seed-initial-data: "True"
   event-bus-user: rabbitmquser
   event-bus-host: event-bus
+
+  # <=== notification-servie ===>
   notifications-allowed-origins: http://localhost
+
+  # <=== admin-client ===>
+  admin-identity-endpoint: http://identity-service:5001
+  admin-dealers-endpoint: http://dealers-service:5002
+  admin-statistics-endpoint: http://statistics-service:5003
+
+  # <=== watchdog-client ===>
+  watchdog-identity-name: identity-service
+  watchdog-identity-health: http://identity-service:5001/health
+  watchdog-dealers-name: dealers-service
+  watchdog-dealers-health: http://dealers-service:5002/health
+  watchdog-statistics-name: statistics-service
+  watchdog-statistics-health: http://statistics-service:5003/health
+  watchdog-notifications-name: notifications-service
+  watchdog-notifications-health: http://notifications-service:5004/health
+  watchdog-admin-name: admin-client
+  watchdog-admin-health: http://admin-client:5000/health
 
 ---
 
@@ -16,12 +36,12 @@ metadata:
   name: environment-secrets
 data: # pwd text here for simplicity while testing
 
-  # <=============== Common =====================>
+  # <=============== Common ===============>
   # "S0M3 M4G1C UN1C0RNS G3N3R4T3D TH1S S3CR3T"
   security-token-secret: UzBNMyBNNEcxQyBVTjFDMFJOUyBHM04zUjRUM0QgVEgxUyBTM0NSM1Q=
 
 
-  # <=============== Identity =====================>
+  # <=============== Identity ===============>
   # "adminpass12!"
   admin-password: YWRtaW5wYXNzMTIh
 
@@ -33,7 +53,7 @@ data: # pwd text here for simplicity while testing
   #U2VydmVyPWlkZW50aXR5LWRhdGFiYXNlO0RhdGFiYXNlPUNhclJlbnRhbElkZW50aXR5RGF0YWJhc2U7VXNlciBJZD1zYTsgUGFzc3dvcmQ9aWRlbnRpdHlEYXRhYmFzZVBhc3N3b3JkMTIhQDtNdWx0aXBsZUFjdGl2ZVJlc3VsdFNldHM9dHJ1ZQ==
 
 
-  # <=============== Dealers =====================>
+  # <=============== Dealers ===============>
   # "dealersDatabasePassword12!@"
   dealers-database-sa-password: ZGVhbGVyc0RhdGFiYXNlUGFzc3dvcmQxMiFA
 
@@ -46,7 +66,7 @@ data: # pwd text here for simplicity while testing
   dealers-service-cronjob-connection-string: U2VydmVyPWRlYWxlcnMtZGF0YWJhc2U7RGF0YWJhc2U9Q2FyUmVudGFsRGVhbGVyc0Nyb25Kb2JzRGF0YWJhc2U7VXNlciBJZD1zYTsgUGFzc3dvcmQ9ZGVhbGVyc0RhdGFiYXNlUGFzc3dvcmQxMiFAO011bHRpcGxlQWN0aXZlUmVzdWx0U2V0cz10cnVl
 
 
-  # <=============== Statistics =====================>
+  # <=============== Statistics ===============>
   # "statisticsDatabasePassword12!@"
   statistics-database-sa-password: c3RhdGlzdGljc0RhdGFiYXNlUGFzc3dvcmQxMiFA
 
@@ -59,6 +79,6 @@ data: # pwd text here for simplicity while testing
   statistics-service-cronjob-connection-string: U2VydmVyPXN0YXRpc3RpY3MtZGF0YWJhc2U7RGF0YWJhc2U9Q2FyUmVudGFsU3RhdGlzdGljc0Nyb25Kb2JzRGF0YWJhc2U7VXNlciBJZD1zYTsgUGFzc3dvcmQ9c3RhdGlzdGljc0RhdGFiYXNlUGFzc3dvcmQxMiFAO011bHRpcGxlQWN0aXZlUmVzdWx0U2V0cz10cnVl
 
 
-  # <=============== Event-bus =====================>
+  # <=============== Event-bus ===============>
   # "rabbitmqPassword12!"
   event-bus-password: cmFiYml0bXFQYXNzd29yZDEyIQ==
