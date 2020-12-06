@@ -16,11 +16,12 @@ kind: Service
 metadata:
   name: notification-service
 spec:
-  selector:
-    web-service: notification
+  type: LoadBalancer
   ports:
   - port: 5004
     targetPort: 80
+  selector:
+    web-service: notification
 
 ---
 
