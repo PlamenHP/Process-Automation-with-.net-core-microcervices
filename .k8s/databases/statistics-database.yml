@@ -1,25 +1,52 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: statistics-database-data
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: statistics-database
+spec:
+  clusterIP: None
+  ports:
+  - port: 1433
+    targetPort: 1433
+  selector:
+    database: statistics
+
+---
+
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: identity-database
+  name: statistics-database
 spec:
-  serviceName: identity-database
+  serviceName: statistics-database
   selector:
     matchLabels:
-      database: identity
+      database: statistics
   template:
     metadata:
       labels:
-        database: identity
+        database: statistics
         system: database
     spec:
       terminationGracePeriodSeconds: 60
       volumes:
-      - name: identity-database-data
+      - name: statistics-database-data
         persistentVolumeClaim:
-          claimName: identity-database-data      
+          claimName: statistics-database-data      
       containers:
-      - name: identity-database
+      - name: statistics-database
         image: mcr.microsoft.com/mssql/server:2019-latest
         imagePullPolicy: IfNotPresent
         ports:
@@ -35,7 +62,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: environment-secrets
-              key: identity-database-sa-password
+              key: statistics-database-sa-password
         volumeMounts:
-        - name: identity-database-data
+        - name: statistics-database-data
           mountPath: /var/opt/mssql
