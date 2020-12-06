@@ -15,17 +15,50 @@ kind: Secret
 metadata:
   name: environment-secrets
 data: # pwd text here for simplicity while testing
-  # "identityDatabasePassword12!@"
-  identity-database-sa-password: aWRlbnRpdHlEYXRhYmFzZVBhc3N3b3JkMTIhQA==
-  # "dealersDatabasePassword12!@"
-  dealers-database-sa-password: ZGVhbGVyc0RhdGFiYXNlUGFzc3dvcmQxMiFA
-  # "statisticsDatabasePassword12!@"
-  statistics-database-sa-password: c3RhdGlzdGljc0RhdGFiYXNlUGFzc3dvcmQxMiFA
+
+  # <=============== Common =====================>
   # "S0M3 M4G1C UN1C0RNS G3N3R4T3D TH1S S3CR3T"
   security-token-secret: UzBNMyBNNEcxQyBVTjFDMFJOUyBHM04zUjRUM0QgVEgxUyBTM0NSM1Q=
+
+
+  # <=============== Identity =====================>
   # "adminpass12!"
   admin-password: YWRtaW5wYXNzMTIh
+
+  # "identityDatabasePassword12!@"
+  identity-database-sa-password: aWRlbnRpdHlEYXRhYmFzZVBhc3N3b3JkMTIhQA==
+
   # "Server=identity-database;Database=CarRentalIdentityDatabase;User Id=sa;Password=identityDatabasePassword12!@;MultipleActiveResultSets=true"
-  identity-service-connection-string: U2VydmVyPWlkZW50aXR5LWRhdGFiYXNlO0RhdGFiYXNlPUNhclJlbnRhbElkZW50aXR5RGF0YWJhc2U7VXNlciBJZD1zYTsgUGFzc3dvcmQ9aWRlbnRpdHlEYXRhYmFzZVBhc3N3b3JkMTIhQDtNdWx0aXBsZUFjdGl2ZVJlc3VsdFNldHM9dHJ1ZQ==
+  identity-service-connection-string: U2VydmVyPWlkZW50aXR5LWRhdGFiYXNlO0RhdGFiYXNlPUNhclJlbnRhbElkZW50aXR5RGF0YWJhc2U7VXNlciBJZD1zYTtQYXNzd29yZD1pZGVudGl0eURhdGFiYXNlUGFzc3dvcmQxMiFAO011bHRpcGxlQWN0aXZlUmVzdWx0U2V0cz10cnVl
+  #U2VydmVyPWlkZW50aXR5LWRhdGFiYXNlO0RhdGFiYXNlPUNhclJlbnRhbElkZW50aXR5RGF0YWJhc2U7VXNlciBJZD1zYTsgUGFzc3dvcmQ9aWRlbnRpdHlEYXRhYmFzZVBhc3N3b3JkMTIhQDtNdWx0aXBsZUFjdGl2ZVJlc3VsdFNldHM9dHJ1ZQ==
+
+
+  # <=============== Dealers =====================>
+  # "dealersDatabasePassword12!@"
+  dealers-database-sa-password: ZGVhbGVyc0RhdGFiYXNlUGFzc3dvcmQxMiFA
+
+  # Default connection string
+  # "Server=sqlserver;Database=CarRentalDealersDatabase;User Id=sa; Password=dealersDatabasePassword12!@;MultipleActiveResultSets=true"
+  dealers-service-default-connection-string: U2VydmVyPXNxbHNlcnZlcjtEYXRhYmFzZT1DYXJSZW50YWxEZWFsZXJzRGF0YWJhc2U7VXNlciBJZD1zYTsgUGFzc3dvcmQ9ZGVhbGVyc0RhdGFiYXNlUGFzc3dvcmQxMiFAO011bHRpcGxlQWN0aXZlUmVzdWx0U2V0cz10cnVl
+
+  # Cron Job connection string
+  # "Server=sqlserver;Database=CarRentalDealersCronJobsDatabase;User Id=sa; Password=dealersDatabasePassword12!@;MultipleActiveResultSets=true"
+  dealers-service-cronjob-connection-string: U2VydmVyPXNxbHNlcnZlcjtEYXRhYmFzZT1DYXJSZW50YWxEZWFsZXJzQ3JvbkpvYnNEYXRhYmFzZTtVc2VyIElkPXNhOyBQYXNzd29yZD1kZWFsZXJzRGF0YWJhc2VQYXNzd29yZDEyIUA7TXVsdGlwbGVBY3RpdmVSZXN1bHRTZXRzPXRydWU=
+
+
+  # <=============== Statistics =====================>
+  # "statisticsDatabasePassword12!@"
+  statistics-database-sa-password: c3RhdGlzdGljc0RhdGFiYXNlUGFzc3dvcmQxMiFA
+
+  # Default connection string
+  # "Server=sqlserver;Database=CarRentalStatisticsDatabase;User Id=sa; Password=statisticsDatabasePassword12!@;MultipleActiveResultSets=true"
+  statistict-service-default-connection-string: U2VydmVyPXNxbHNlcnZlcjtEYXRhYmFzZT1DYXJSZW50YWxTdGF0aXN0aWNzRGF0YWJhc2U7VXNlciBJZD1zYTsgUGFzc3dvcmQ9c3RhdGlzdGljc0RhdGFiYXNlUGFzc3dvcmQxMiFAO011bHRpcGxlQWN0aXZlUmVzdWx0U2V0cz10cnVl
+
+  # Cron Job connection string
+  # "Server=sqlserver;Database=CarRentalStatisticsCronJobsDatabase;User Id=sa; Password=statisticsDatabasePassword12!@;MultipleActiveResultSets=true"
+  statistics-service-cronjob-connection-string: U2VydmVyPXNxbHNlcnZlcjtEYXRhYmFzZT1DYXJSZW50YWxTdGF0aXN0aWNzQ3JvbkpvYnNEYXRhYmFzZTtVc2VyIElkPXNhOyBQYXNzd29yZD1zdGF0aXN0aWNzRGF0YWJhc2VQYXNzd29yZDEyIUA7TXVsdGlwbGVBY3RpdmVSZXN1bHRTZXRzPXRydWU=
+
+
+  # <=============== Event-bus =====================>
   # "rabbitmqPassword12!"
   event-bus-password: cmFiYml0bXFQYXNzd29yZDEyIQ==
